@@ -97,7 +97,7 @@ class QBWC::ActiveRecord::Job < QBWC::Job
   end
 
   def self.list_jobs
-    QbwcJob.all.map {|ar_job| ar_job.to_qbwc_job}
+    QbwcJob.order('created_at DESC').all.map {|ar_job| ar_job.to_qbwc_job}
   end
 
   def self.clear_jobs
